@@ -10,15 +10,13 @@ class Solution {
         int[] result = new int[2];
         Map<Integer,Integer> map = new HashMap<>(nums.length);
         for(int i=0; i<nums.length;i++) {
-            map.put(nums[i],i);
-        }
-        for(int i=0; i<nums.length;i++) {
             Integer j = map.get(target-nums[i]);
             if(j!=null && i!=j) {
                 result[0] = i;
-                result[1] = map.get(target-nums[i]);
+                result[1] = j;
                 return result;
             }
+            map.put(nums[i],i);
         }
         return result;
     }
